@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spider-Verse Animation Science & ML Documentation</title>
+  <meta name="description" content="Technical documentation and animation science guide covering Animating on the Twos, Ben-Day dot screening, bilateral ink contours, and machine learning stylization.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .docs-wrapper {
+      max-width: 900px;
+      margin: 0 auto 60px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+    .docs-section {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .docs-section h2 {
+      font-family: var(--font-comic);
+      font-size: 28px;
+      letter-spacing: 1px;
+      color: var(--preset-secondary);
+      margin-bottom: 16px;
+      border-bottom: 2px solid rgba(0, 240, 255, 0.2);
+      padding-bottom: 8px;
+    }
+    .docs-section h3 {
+      font-size: 18px;
+      color: var(--preset-accent);
+      margin: 20px 0 10px 0;
+    }
+    .docs-section p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+    .code-callout {
+      background: #060810;
+      border-left: 4px solid var(--preset-primary);
+      padding: 14px 18px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: #00f0ff;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin: 14px 0;
+      overflow-x: auto;
+    }
+    .diagram-box {
+      background: rgba(0, 0, 0, 0.4);
+      border: 2px dashed rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      text-align: center;
+      margin: 16px 0;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--spider-yellow);
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#docs-main" class="skip-link">Skip to Documentation Content</a>
+
+  <div class="studio-container">
+
+    <!-- Header -->
+    <header class="studio-header" role="banner">
+      <div class="logo-section">
+        <a href="index.html" class="spider-badge" title="Spider-Verse ML Studio Home" aria-label="Spider-Verse ML Studio Home">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+        </a>
+        <div class="logo-title-group">
+          <h1>ANIMATION SCIENCE</h1>
+        </div>
+        <span class="universe-tag">TECHNICAL DOCS</span>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="main-nav" role="navigation" aria-label="Studio Main Navigation">
+        <a href="index.html" class="nav-link">3D Studio</a>
+        <a href="vfx-lab.html" class="nav-link">Neural VFX Lab</a>
+        <a href="vfx-library.html" class="nav-link">Comic Sound FX</a>
+        <a href="multiverse.html" class="nav-link">Multiverse Gallery</a>
+        <a href="docs.html" class="nav-link active" aria-current="page">Animation Docs</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="a11y-btn" id="a11y-toggle-btn" aria-label="Open Accessibility Settings (Press ? key)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>
+          </svg>
+          A11Y / KEYS
+        </button>
+      </div>
+    </header>
+
+    <!-- Scrollable Docs Main -->
+    <main class="page-scroll-container" id="docs-main" role="main">
+      <div class="page-hero">
+        <h1>THE SCIENCE BEHIND SPIDER-VERSE ANIMATION</h1>
+        <p>
+          Discover how Sony Pictures Imageworks revolutionized the animation medium, and how our Python Machine Learning & Computer Vision engine reproduces those techniques mathematically in code.
+        </p>
+      </div>
+
+      <div class="docs-wrapper">
+
+        <!-- Section 1 -->
+        <article class="docs-section" aria-labelledby="heading-twos">
+          <h2 id="heading-twos">1. "Animating on the Twos": The Rhythm of Frame Pacing</h2>
+          <p>
+            In standard 3D CGI animation (Pixar, Disney, DreamWorks), computers interpolate character movement at a glass-smooth 24 or 60 frames per second. While realistic, this often produces a floaty, weightless feel.
+          </p>
+          <p>
+            Traditional hand-drawn animation was frequently drawn <strong>"on the twos"</strong>—meaning one drawing was held for two frames of film (yielding 12 distinct drawings per second). In <em>Into the Spider-Verse</em>, Peter B. Parker animates on the 1s (experienced and smooth), while Miles Morales initially animates on the 2s (hesitant and uncoordinated) before earning his 1s during the leap of faith.
+          </p>
+          <div class="diagram-box">
+            Standard 3D: [F1] [F2] [F3] [F4] [F5] [F6] (Smooth 24fps interpolation)<br>
+            Spider-Verse: [F1] [F1] [F3] [F3] [F5] [F5] (12fps pose holds on 24fps background)
+          </div>
+          <div class="code-callout">
+            // Python Temporal Holding in ml_engine.py:<br>
+            step_factor = round(source_fps / target_fps)<br>
+            stepped_frames = [frames[(i // step_factor) * step_factor] for i in range(len(frames))]
+          </div>
+        </article>
+
+        <!-- Section 2 -->
+        <article class="docs-section" aria-labelledby="heading-bended">
+          <h2 id="heading-bended">2. Ben-Day Halftone Dot Screen Printing</h2>
+          <p>
+            Invented by illustrator Benjamin Henry Day Jr. in 1879, Ben-Day dots were originally a mechanical printing process that used small colored dots to create shading and color gradations in cheap 1960s pulp comic books.
+          </p>
+          <p>
+            Rather than realistic physical lighting falloff, Spider-Verse characters use screen-space circular dots in midtones and shadows. Our ML engine generates these dots via coordinate rotational trigonometry to reproduce authentic CMYK printing screen angles:
+          </p>
+          <div class="code-callout">
+            # Distance from rotational screen grid center:<br>
+            dist_sq = (mod_x ** 2 + mod_y ** 2) / ((cell_size / 2.0) ** 2)<br>
+            # Radius dynamically modulated by inverted luminance:<br>
+            dot_radius_sq = (1.0 - luminance) * contrast_multiplier
+          </div>
+        </article>
+
+        <!-- Section 3 -->
+        <article class="docs-section" aria-labelledby="heading-ink">
+          <h2 id="heading-ink">3. Hand-Drawn Ink Contours & Line Weight</h2>
+          <p>
+            To prevent 3D characters from looking like plastic action figures, artists developed specialized pen tools to draw real ink strokes over 3D surfaces, simulating pencil pressure and hatching lines.
+          </p>
+          <p>
+            Our pipeline extracts these outlines using <strong>Bilateral Smoothing</strong> (which flattens noise while preserving critical boundary edges), coupled with <strong>Sobel Gradient Magnitude Filtering</strong> to vary line weight according to surface depth, followed by morphological dilation for drawn ink thickness.
+          </p>
+        </article>
+
+        <!-- Section 4 -->
+        <article class="docs-section" aria-labelledby="heading-chromatic">
+          <h2 id="heading-chromatic">4. Chromatic Aberration as Narrative Instability</h2>
+          <p>
+            When a character is displaced from their home universe, their molecules glitch. Instead of generic computer artifacts, the filmmakers translated this into comic book printing register misalignments: the Red, Green, and Blue printing plates slipping apart.
+          </p>
+          <p>
+            Our engine separates RGB channels in NumPy, shifts the Red channel leftward, the Blue channel rightward, and randomly offsets horizontal pixel scanlines to simulate dimensional rifts in reality.
+          </p>
+        </article>
+
+        <!-- Section 5 -->
+        <article class="docs-section" aria-labelledby="heading-a11y">
+          <h2 id="heading-a11y">5. Accessibility (A11Y) in this Application</h2>
+          <p>
+            This studio has been architected to conform with <strong>WCAG 2.1 AA</strong> accessibility standards:
+          </p>
+          <ul style="color:var(--text-secondary); margin-left:24px; line-height:1.8; font-size:14px;">
+            <li><strong>Full Keyboard Navigation:</strong> Every control, button, slider, and timeline scrubber can be navigated with Tab and Arrow keys. Shortcuts (P for play, 1-6 for presets, T for THWIP, S for stylize) allow efficient workflows.</li>
+            <li><strong>Screen Reader Live Region:</strong> An <code>aria-live="polite"</code> region announces background ML processing times, preset changes, and frame scrub updates to assistive technologies.</li>
+            <li><strong>Reduced Motion Support:</strong> Respects the system <code>prefers-reduced-motion</code> media query and provides an in-app toggle to disable camera oscillations, glitch flashes, and particle velocities.</li>
+            <li><strong>High Contrast Mode:</strong> Enhances borders to solid white with pitch-black backdrops for maximum text clarity.</li>
+            <li><strong>Accessible Touch Targets:</strong> All buttons meet the minimum 44x44 pixel interactive hit target size.</li>
+          </ul>
+        </article>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/a11y.js"></script>
+</body>
+</html>

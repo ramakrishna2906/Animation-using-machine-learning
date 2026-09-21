@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spider-Verse Comic VFX & Sound FX Library | Sticker Studio</title>
+  <meta name="description" content="Generate and customize Spider-Verse comic book sound effects, onomatopoeia stickers, Kirby krackle dots, and action speedlines. Export transparent PNGs.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#vfx-library-main" class="skip-link">Skip to Comic VFX Library Content</a>
+
+  <div class="studio-container">
+
+    <!-- Header -->
+    <header class="studio-header" role="banner">
+      <div class="logo-section">
+        <a href="index.html" class="spider-badge" title="Spider-Verse ML Studio Home" aria-label="Spider-Verse ML Studio Home">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+        </a>
+        <div class="logo-title-group">
+          <h1>COMIC VFX STUDIO</h1>
+        </div>
+        <span class="universe-tag">SOUND WORDS & PARTICLES</span>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="main-nav" role="navigation" aria-label="Studio Main Navigation">
+        <a href="index.html" class="nav-link">3D Studio</a>
+        <a href="vfx-lab.html" class="nav-link">Neural VFX Lab</a>
+        <a href="vfx-library.html" class="nav-link active" aria-current="page">Comic Sound FX</a>
+        <a href="multiverse.html" class="nav-link">Multiverse Gallery</a>
+        <a href="docs.html" class="nav-link">Animation Docs</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="a11y-btn" id="a11y-toggle-btn" aria-label="Open Accessibility Settings (Press ? key)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>
+          </svg>
+          A11Y / KEYS
+        </button>
+        <div class="status-badge" role="status">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          <span>VFX SYNTHESIZER ONLINE</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="studio-workspace" id="vfx-library-main" style="grid-template-columns: 320px 1fr 300px;" role="main">
+
+      <!-- Left Sidebar: Onomatopoeia Sticker Customizer -->
+      <aside class="studio-sidebar left" role="complementary" aria-label="Sticker Customizer Controls">
+        <section class="panel-section" aria-labelledby="heading-sticker-creator">
+          <div class="panel-header">
+            <h2 class="panel-title" id="heading-sticker-creator">STICKER CUSTOMIZER</h2>
+          </div>
+
+          <div class="control-group">
+            <label for="sticker-text-input" class="control-label" style="display:block; margin-bottom:6px;">Sound Word Text</label>
+            <input type="text" id="sticker-text-input" value="THWIP!" maxlength="14" style="width:100%; padding:10px; background:#121626; border:2px solid var(--preset-secondary); color:#ffffff; font-family:var(--font-comic); font-size:20px; border-radius:var(--radius-sm); letter-spacing:1px;" aria-label="Custom Sound Effect Word">
+          </div>
+
+          <!-- Quick Words Pills -->
+          <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px;" role="toolbar" aria-label="Preset comic sound words">
+            <button type="button" class="fps-btn sticker-quick" data-word="THWIP!">THWIP!</button>
+            <button type="button" class="fps-btn sticker-quick" data-word="BOOM!">BOOM!</button>
+            <button type="button" class="fps-btn sticker-quick" data-word="POW!">POW!</button>
+            <button type="button" class="fps-btn sticker-quick" data-word="ZAAAP!">ZAAAP!</button>
+            <button type="button" class="fps-btn sticker-quick" data-word="KRAK!">KRAK!</button>
+            <button type="button" class="fps-btn sticker-quick" data-word="BAM!">BAM!</button>
+          </div>
+
+          <!-- Color Theme Selection -->
+          <div class="control-group">
+            <label class="control-label" style="display:block; margin-bottom:6px;">Primary Color Fill</label>
+            <div style="display:flex; gap:8px;" role="radiogroup" aria-label="Sticker text color">
+              <button type="button" class="swatch-dot color-pick active" data-color="#ffe600" style="background:#ffe600; width:28px; height:28px; cursor:pointer;" aria-label="Venom Yellow"></button>
+              <button type="button" class="swatch-dot color-pick" data-color="#ff0055" style="background:#ff0055; width:28px; height:28px; cursor:pointer;" aria-label="Neon Hot Magenta"></button>
+              <button type="button" class="swatch-dot color-pick" data-color="#00f0ff" style="background:#00f0ff; width:28px; height:28px; cursor:pointer;" aria-label="Electric Cyan"></button>
+              <button type="button" class="swatch-dot color-pick" data-color="#5ce1e6" style="background:#5ce1e6; width:28px; height:28px; cursor:pointer;" aria-label="Spider-Gwen Turquoise"></button>
+              <button type="button" class="swatch-dot color-pick" data-color="#ffffff" style="background:#ffffff; width:28px; height:28px; cursor:pointer;" aria-label="Bleach White"></button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label-row">
+              <label for="sticker-spikes" class="control-label">Starburst Spikes</label>
+              <span class="control-value" id="sticker-spikes-val">14</span>
+            </div>
+            <input type="range" class="comic-slider" id="sticker-spikes" min="8" max="24" value="14" step="1" aria-label="Starburst Spikes Count" aria-valuemin="8" aria-valuemax="24" aria-valuenow="14">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label-row">
+              <label for="sticker-shadow-depth" class="control-label">3D Extrusion Shadow</label>
+              <span class="control-value" id="sticker-shadow-depth-val">8px</span>
+            </div>
+            <input type="range" class="comic-slider" id="sticker-shadow-depth" min="2" max="18" value="8" step="1" aria-label="3D Extrusion Shadow Depth" aria-valuemin="2" aria-valuemax="18" aria-valuenow="8">
+          </div>
+
+          <button type="button" class="export-btn" id="btn-spawn-sticker" style="width:100%; margin-top:10px;" aria-label="Spawn Custom Comic Sticker on Preview Canvas">
+            SPAWN ON CANVAS
+          </button>
+        </section>
+
+        <!-- Other Particle VFX -->
+        <section class="panel-section" aria-labelledby="heading-particles-lab">
+          <div class="panel-header">
+            <h2 class="panel-title" id="heading-particles-lab">PROCEDURAL PARTICLES</h2>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <button type="button" class="vfx-btn" id="lib-btn-krackle" aria-label="Generate Kirby Krackle cosmic black energy dots">
+              KIRBY KRACKLE CLUSTERS
+            </button>
+            <button type="button" class="vfx-btn" id="lib-btn-speedburst" aria-label="Generate radial anime action speed lines">
+              RADIAL SPEEDBURST
+            </button>
+            <button type="button" class="vfx-btn" id="lib-btn-tear" aria-label="Generate dimensional multiverse fracture tear">
+              DIMENSIONAL RIFT TEAR
+            </button>
+            <button type="button" class="vfx-btn" id="lib-btn-venom" aria-label="Generate venom shock lightning electrical arcs">
+              VENOM LIGHTNING ARCS
+            </button>
+          </div>
+        </section>
+      </aside>
+
+      <!-- Center: Interactive VFX Preview Stage -->
+      <section class="studio-viewport" aria-label="Comic VFX Canvas Stage">
+        <div class="canvas-wrapper" style="background:#070810; position:relative;">
+          <canvas id="vfx-lib-canvas" role="img" aria-label="Interactive Comic VFX Preview Canvas. Click anywhere to spawn sound bursts and particles."></canvas>
+          <div style="position:absolute; bottom:20px; left:20px; background:rgba(0,0,0,0.7); padding:8px 14px; border-radius:4px; font-size:12px; color:var(--text-secondary); pointer-events:none;">
+            Click or tap anywhere on the canvas to trigger action bursts!
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Sidebar: Export & Download Studio -->
+      <aside class="studio-sidebar right" role="complementary" aria-label="Download and Sticker Export">
+        <section class="panel-section" aria-labelledby="heading-sticker-export">
+          <div class="panel-header">
+            <h2 class="panel-title" id="heading-sticker-export">EXPORT STICKER</h2>
+          </div>
+          <p style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">
+            Download generated comic onomatopoeia with transparent alpha background for your animation reels, video editors, or artwork:
+          </p>
+
+          <div class="export-actions">
+            <button type="button" class="export-btn" id="btn-export-sticker-png" aria-label="Download current comic sticker as transparent PNG">
+              DOWNLOAD STICKER (PNG)
+            </button>
+            <button type="button" class="export-btn secondary" id="btn-clear-canvas" aria-label="Clear all particles from preview canvas">
+              CLEAR CANVAS
+            </button>
+            <a href="index.html" class="export-btn secondary" style="text-align:center; text-decoration:none;" aria-label="Return to 3D CGI Animation Studio">
+              &larr; BACK TO 3D STUDIO
+            </a>
+          </div>
+        </section>
+      </aside>
+
+    </main>
+  </div>
+
+  <script src="js/a11y.js"></script>
+  <script src="js/vfx_engine.js"></script>
+  <script>
+    // VFX Library Interactive Controller
+    (function() {
+      const canvas = document.getElementById("vfx-lib-canvas");
+      const vfx = new window.SpiderVerseVFXEngine(canvas);
+
+      let chosenColor = "#ffe600";
+
+      // Color picker
+      document.querySelectorAll(".color-pick").forEach(btn => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".color-pick").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          chosenColor = btn.getAttribute("data-color");
+        });
+      });
+
+      // Quick word buttons
+      document.querySelectorAll(".sticker-quick").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const word = btn.getAttribute("data-word");
+          const input = document.getElementById("sticker-text-input");
+          if (input) input.value = word;
+          vfx.triggerOnomatopoeia(word, null, null, chosenColor);
+          window.SpiderVerseA11Y.announce(`Spawned ${word}`);
+        });
+      });
+
+      // Spawn custom button
+      document.getElementById("btn-spawn-sticker")?.addEventListener("click", () => {
+        const word = document.getElementById("sticker-text-input")?.value || "THWIP!";
+        vfx.triggerOnomatopoeia(word, null, null, chosenColor);
+        window.SpiderVerseA11Y.announce(`Spawned custom sticker ${word}`);
+      });
+
+      // Particles
+      document.getElementById("lib-btn-krackle")?.addEventListener("click", () => {
+        vfx.triggerKirbyKrackle();
+        window.SpiderVerseA11Y.announce("Generated Kirby Krackle clusters");
+      });
+      document.getElementById("lib-btn-speedburst")?.addEventListener("click", () => {
+        vfx.triggerSpeedlines(60, chosenColor);
+        window.SpiderVerseA11Y.announce("Generated radial speed burst");
+      });
+      document.getElementById("lib-btn-tear")?.addEventListener("click", () => {
+        vfx.triggerDimensionalTear(50);
+        window.SpiderVerseA11Y.announce("Generated dimensional rift tear");
+      });
+      document.getElementById("lib-btn-venom")?.addEventListener("click", () => {
+        vfx.triggerVenomBlast();
+        window.SpiderVerseA11Y.announce("Generated venom blast electrical discharge");
+      });
+
+      // Clear canvas
+      document.getElementById("btn-clear-canvas")?.addEventListener("click", () => {
+        vfx.particles = [];
+        vfx.onomatopoeiaList = [];
+        vfx.speedlinesActive = false;
+        vfx.glitchActive = false;
+        window.SpiderVerseA11Y.announce("Canvas cleared");
+      });
+
+      // Export sticker
+      document.getElementById("btn-export-sticker-png")?.addEventListener("click", async () => {
+        const word = document.getElementById("sticker-text-input")?.value || "THWIP!";
+        window.SpiderVerseA11Y.announce("Generating transparent sticker via backend API...");
+
+        try {
+          const res = await fetch("/api/generate-vfx", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              vfx_type: "onomatopoeia",
+              text: word,
+              width: 600,
+              height: 400,
+              color: chosenColor
+            })
+          });
+          const data = await res.json();
+          if (data.success && data.vfx_base64) {
+            const a = document.createElement("a");
+            a.href = data.vfx_base64;
+            a.download = `spiderverse_sticker_${word}.png`;
+            a.click();
+            window.SpiderVerseA11Y.announce(`Sticker ${word} downloaded as transparent PNG!`);
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      });
+
+      // Initial sticker spawn
+      setTimeout(() => {
+        vfx.triggerOnomatopoeia("THWIP!", null, null, "#ffe600");
+      }, 300);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spider-Verse ML Animation & VFX Studio | 3D CGI Viewport</title>
+  <meta name="description" content="Accessible AI & Machine Learning Animation and VFX/CGI Studio featuring 3D Three.js character animation, stepped 12fps timing, and Ben-Day halftone screening.">
+
+  <!-- Google Fonts: Bangers (Comic display), Space Grotesk (Tech mono), Inter (Clean UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Three.js & OrbitControls for 3D CGI Viewport -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+  <!-- Studio Design System -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Accessible Skip Link for Keyboard & Screen Reader Users -->
+  <a href="#main-viewport" class="skip-link">Skip to 3D Viewport Content</a>
+
+  <div class="studio-container">
+
+    <!-- ===================================================================
+         TOP HEADER: TITLE, MAIN NAVIGATION, ACCESSIBILITY CONTROLS
+         =================================================================== -->
+    <header class="studio-header" role="banner">
+      <div class="logo-section">
+        <a href="index.html" class="spider-badge" title="Spider-Verse ML Studio Home" aria-label="Spider-Verse ML Studio Home">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+        </a>
+        <div class="logo-title-group">
+          <h1>SPIDER-VERSE ML STUDIO</h1>
+        </div>
+        <span class="universe-tag" id="universe-header-tag" aria-label="Current Universe: Earth-1610 Brooklyn">EARTH-1610 // BROOKLYN</span>
+      </div>
+
+      <!-- Main Multi-Page Navigation Bar -->
+      <nav class="main-nav" role="navigation" aria-label="Studio Main Navigation">
+        <a href="index.html" class="nav-link active" aria-current="page">3D Studio</a>
+        <a href="vfx-lab.html" class="nav-link">Neural VFX Lab</a>
+        <a href="vfx-library.html" class="nav-link">Comic Sound FX</a>
+        <a href="multiverse.html" class="nav-link">Multiverse Gallery</a>
+        <a href="docs.html" class="nav-link">Animation Docs</a>
+      </nav>
+
+      <!-- Quick Universe Preset Switcher -->
+      <div class="multiverse-quick-pills" id="header-pills" role="toolbar" aria-label="Quick Multiverse Universe Selector">
+        <!-- Injected dynamically via app.js -->
+      </div>
+
+      <div class="header-actions">
+        <!-- A11Y Modal Toggle Button -->
+        <button type="button" class="a11y-btn" id="a11y-toggle-btn" aria-label="Open Accessibility & Keyboard Controls Settings (Press ? key)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>
+          </svg>
+          A11Y / KEYS
+        </button>
+
+        <div class="status-badge" role="status" aria-label="ML Engine Status: Online">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          <span>ML ONLINE</span>
+        </div>
+
+        <button type="button" class="view-tool-btn" id="split-compare-btn" title="Toggle Split Screen Compare" aria-label="Toggle Side-by-Side Split Compare View (Press C key)" aria-pressed="false">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 16H5V5h7v14zm7 0h-5V5h5v14z"/>
+          </svg>
+          SPLIT COMPARE
+        </button>
+      </div>
+    </header>
+
+    <!-- ===================================================================
+         MAIN WORKSPACE: 3 COLUMNS (CONTROLS | VIEWPORT | INSPECTOR)
+         =================================================================== -->
+    <main class="studio-workspace" id="main-content" role="main">
+
+      <!-- LEFT SIDEBAR: MULTIVERSE PRESETS & ML PARAMETERS -->
+      <aside class="studio-sidebar left" role="complementary" aria-label="Multiverse Presets and ML Controls">
+
+        <!-- Multiverse Universe Selector -->
+        <section class="panel-section" aria-labelledby="heading-multiverse-presets">
+          <div class="panel-header">
+            <h2 class="panel-title" id="heading-multiverse-presets">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+              MULTIVERSE PRESETS
+            </h2>
+          </div>
+          <div class="preset-grid" id="preset-grid" role="radiogroup" aria-label="Multiverse Universe Styles">
+            <!-- Dynamically populated cards -->
+          </div>
+        </section>
+
+        <!-- 3D Animation Pose Selection -->
+        <section class="panel-section" aria-labelledby="heading-animation-pose">
+          <div class="panel-header">
+            <h2 class="panel-title" id="heading-animation-pose">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7"/>
+              </svg>
+              ANIMATION POSE
+            </h2>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px;" role="toolbar" aria-label="Superhero animation poses">
+            <button type="button" class="fps-btn pose-btn active" data-pose="swing" aria-label="Play Web Swinging Animation Pose">WEB SWING</button>
+            <button type="button" class="fps-btn pose-btn" data-pose="crouch" aria-label="Play Rooftop Crouch Gargoyle Pose">CROUCH</button>
+            <button type="button" class="fps-btn pose-btn" data-pose="leap" aria-label="Play Skyfall Inverted Dive Pose">SKYFALL</button>
+          </div>
+        </section>
+
+        <!-- Neural Stylization Parameters -->
+        <section class="panel-section" aria-labelledby="heading-shader-controls">
+          <div class="panel-header">
+            <h2 class="panel-title" id="heading-shader-controls">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/>
+              </svg>
+              ML SHADER CONTROLS
+            </h2>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label-row">
+              <label for="slider-halftone-scale" class="control-label">Ben-Day Dot Scale</label>
+              <span class="control-value" id="slider-halftone-scale-val" aria-hidden="true">10</span>
+            </div>
+            <input type="range" class="comic-slider" id="slider-halftone-scale" min="4" max="24" value="10" step="1" aria-label="Ben-Day Dot Scale" aria-valuemin="4" aria-valuemax="24" aria-valuenow="10">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label-row">
+              <label for="slider-halftone-contrast" class="control-label">Halftone Contrast</label>
+              <span class="control-value" id="slider-halftone-contrast-val" aria-hidden="true">1.6</span>
+            </div>
+            <input type="range" class="comic-slider" id="slider-halftone-contrast" min="0.8" max="3.0" value="1.6" step="0.1" aria-label="Halftone Contrast" aria-valuemin="0.8" aria-valuemax="3.0" aria-valuenow="1.6">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label-row">
+              <label for="slider-ink-weight" class="control-label">Ink Outline Weight</label>
+              <span class="control-value" id="slider-ink-weight-val" aria-hidden="true">2.2</span>
+            </div>
+            <input type="range" class="comic-slider" id="slider-ink-weight" min="0.5" max="5.0" value="2.2" step="0.1" aria-label="Ink Outline Weight" aria-valuemin="0.5" aria-valuemax="5.0" aria-valuenow="2.2">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label-row">
+              <label for="slider-glitch-intensity" class="control-label">Chromatic Glitch Fringe</label>
+              <span class="control-value" id="slider-glitch-intensity-val" aria-hidden="true">6.0</span>
+            </div>
+            <input type="range" class="comic-slider" id="slider-glitch-intensity" min="0" max="18" value="6.0" step="0.5" aria-label="Chromatic Glitch Fringe Offset" aria-valuemin="0" aria-valuemax="18" aria-valuenow="6.0">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label-row">
+              <label for="slider-color-levels" class="control-label">Color Quantize Levels</label>
+              <span class="control-value" id="slider-color-levels-val" aria-hidden="true">6</span>
+            </div>
+            <input type="range" class="comic-slider" id="slider-color-levels" min="3" max="10" value="6" step="1" aria-label="Color Quantization Levels" aria-valuemin="3" aria-valuemax="10" aria-valuenow="6">
+          </div>
+        </section>
+
+        <!-- Stepped Animation Timing -->
+        <section class="panel-section" aria-labelledby="heading-animation-step">
+          <div class="panel-header">
+            <h2 class="panel-title" id="heading-animation-step">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+              </svg>
+              ANIMATION STEP PACING
+            </h2>
+          </div>
+          <p style="font-size:11px; color:var(--text-muted); margin-bottom:8px;">
+            Spider-Verse's visual hallmark: Animating character poses at 12 fps ("on the twos") while the background camera sweeps at 60 fps.
+          </p>
+          <div class="fps-toggle-group" role="toolbar" aria-label="Animation framerate selection">
+            <button type="button" class="fps-btn" data-fps="8" aria-label="8 Frames per second Spider-Punk low-fi stutter">8 FPS (PUNK)</button>
+            <button type="button" class="fps-btn active" data-fps="12" aria-label="12 Frames per second authentic animating on the twos">12 FPS (TWOS)</button>
+            <button type="button" class="fps-btn" data-fps="24" aria-label="24 Frames per second cinematic smooth on ones">24 FPS (ONES)</button>
+          </div>
+        </section>
+
+      </aside>
+
+      <!-- CENTER VIEWPORT: 3D THREE.JS CANVAS + 2D VFX OVERLAY -->
+      <section class="studio-viewport" id="main-viewport" aria-label="3D CGI Viewport Stage">
+        <!-- Floating Toolbar -->
+        <div class="viewport-toolbar" role="toolbar" aria-label="Camera and Render controls">
+          <div class="toolbar-group">
+            <button type="button" class="view-tool-btn cam-btn active" data-cam="action" aria-label="Switch to Action Camera Angle">ACTION CAM</button>
+            <button type="button" class="view-tool-btn cam-btn" data-cam="rooftop" aria-label="Switch to Rooftop High Angle Camera">ROOFTOP CAM</button>
+            <button type="button" class="view-tool-btn cam-btn" data-cam="close" aria-label="Switch to Hero Close-up Camera Angle">CLOSE-UP</button>
+            <button type="button" class="view-tool-btn cam-btn" data-cam="orbit" aria-label="Switch to Free Orbit Camera">FREE ORBIT</button>
+          </div>
+
+          <div class="toolbar-group">
+            <button type="button" class="view-tool-btn" id="btn-run-ml-stylize" style="background:var(--preset-primary); border-color:#fff; color:#fff;" aria-label="Render current frame with Spider-Verse Neural Machine Learning Pipeline (Press S key)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              <span>RENDER SPIDER-VERSE FRAME</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Canvas Stacking Viewport -->
+        <div class="canvas-wrapper">
+          <!-- 3D Three.js WebGL Canvas -->
+          <canvas id="three-canvas" role="img" aria-label="Interactive 3D CGI Superhero animated scene"></canvas>
+
+          <!-- 2D Interactive Comic VFX Overlay Canvas -->
+          <canvas id="vfx-overlay-canvas" role="img" aria-label="Dynamic 2D Comic VFX Particle Overlay"></canvas>
+
+          <!-- Split Screen Compare Container -->
+          <div class="split-slider-container" id="split-slider-container" aria-label="Side-by-side comparison between raw 3D CGI and ML stylized Spider-Verse composite">
+            <span class="split-label left">RAW 3D CGI</span>
+            <span class="split-label right">SPIDER-VERSE ML RENDER</span>
+
+            <img id="split-image-original" alt="Original raw 3D CGI render without stylization" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain;">
+            <img id="split-image-stylized" alt="Stylized Spider-Verse render with Ben-Day dots, ink lines, and chromatic glitch" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain;">
+
+            <div class="split-line" id="split-line" style="left:50%;" role="separator" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Before/After Split View Divider" tabindex="0">
+              <div class="split-handle" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT SIDEBAR: MEDIA SOURCE, TELEMETRY, VFX GENERATOR, EXPORT -->
+      <aside class="studio-sidebar right" role="complementary" aria-label="Inspector and VFX Tools">
+
+        <!-- Input Source Selection -->
+        <section class="panel-section" aria-labelledby="heading-input-source">
+          <div class="panel-header">
+            <h2 class="panel-title" id="heading-input-source">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zm-10-7h9v6h-9z"/>
+              </svg>
+              INPUT SOURCE
+            </h2>
+          </div>
+
+          <div class="media-source-select" role="tablist" aria-label="Scene input source">
+            <button type="button" class="media-tab-btn active" id="tab-source-3d" role="tab" aria-selected="true" aria-controls="three-canvas">3D LIVE CGI</button>
+            <button type="button" class="media-tab-btn" id="tab-source-upload" role="tab" aria-selected="false" aria-controls="upload-drop-zone">UPLOAD</button>
+            <button type="button" class="media-tab-btn" id="tab-source-sample" role="tab" aria-selected="false">SAMPLE SHOT</button>
+          </div>
+
+          <div class="upload-drop-zone" id="upload-drop-zone" style="display:none;" tabindex="0" role="button" aria-label="Upload custom superhero image or video frame. Click or drop file here.">
+            <svg class="upload-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+            </svg>
+            <div class="upload-text">Click or Drop Image / Video Frame</div>
+            <input type="file" id="media-file-input" accept="image/*" style="display:none;" aria-label="File upload input">
+          </div>
+        </section>
+
+        <!-- Pipeline Telemetry -->
+        <section class="panel-section" aria-labelledby="heading-telemetry">
+          <div class="panel-header">
+            <h2 class="panel-title" id="heading-telemetry">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+              </svg>
+              ML PIPELINE TELEMETRY
+            </h2>
+          </div>
+          <div class="telemetry-grid" role="region" aria-label="Real-time Performance Telemetry">
+            <div class="telemetry-box">
+              <div class="telemetry-label">Frame Timing</div>
+              <div class="telemetry-value" id="telemetry-fps">12 FPS</div>
+            </div>
+            <div class="telemetry-box">
+              <div class="telemetry-label">ML Latency</div>
+              <div class="telemetry-value" id="telemetry-latency">18.4ms</div>
+            </div>
+            <div class="telemetry-box">
+              <div class="telemetry-label">Stepped Frame</div>
+              <div class="telemetry-value" id="telemetry-frame">01 / 48</div>
+            </div>
+            <div class="telemetry-box">
+              <div class="telemetry-label">Halftone Angle</div>
+              <div class="telemetry-value">45.0 DEG</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Dynamic Action Comic VFX Triggers -->
+        <section class="panel-section" aria-labelledby="heading-generative-vfx">
+          <div class="panel-header">
+            <h2 class="panel-title" id="heading-generative-vfx">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
+              </svg>
+              GENERATIVE COMIC VFX
+            </h2>
+          </div>
+          <p style="font-size:11px; color:var(--text-muted); margin-bottom:8px;">
+            Click buttons or tap anywhere inside the 3D viewport to spawn dynamic sound words & VFX particles!
+          </p>
+
+          <div class="vfx-trigger-grid" role="toolbar" aria-label="Comic Action VFX Buttons">
+            <button type="button" class="vfx-btn" id="vfx-btn-thwip" style="--preset-accent:#ffe600;" aria-label="Spawn THWIP comic sound burst (Press T key)">THWIP!</button>
+            <button type="button" class="vfx-btn" id="vfx-btn-boom" style="--preset-accent:#ff0055;" aria-label="Spawn BOOM comic explosion (Press B key)">BOOM!</button>
+            <button type="button" class="vfx-btn" id="vfx-btn-pow" style="--preset-accent:#00f0ff;" aria-label="Spawn POW comic punch burst">POW!</button>
+            <button type="button" class="vfx-btn" id="vfx-btn-zap" style="--preset-accent:#ffe600;" aria-label="Spawn ZAP comic electric burst">ZAAAP!</button>
+            <button type="button" class="vfx-btn" id="vfx-btn-speedlines" aria-label="Trigger radial action speed lines">SPEEDBURST</button>
+            <button type="button" class="vfx-btn" id="vfx-btn-tear" aria-label="Trigger dimensional multiverse rift tear">DIMENSION TEAR</button>
+            <button type="button" class="vfx-btn" id="vfx-btn-krackle" aria-label="Trigger Kirby Krackle cosmic dots">KIRBY KRACKLE</button>
+            <button type="button" class="vfx-btn" id="vfx-btn-venom" aria-label="Trigger Venom blast electrical discharge arcs">VENOM SHOCK</button>
+          </div>
+        </section>
+
+        <!-- Export Center -->
+        <section class="panel-section" aria-labelledby="heading-export-center">
+          <div class="panel-header">
+            <h2 class="panel-title" id="heading-export-center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+              </svg>
+              EXPORT STUDIO
+            </h2>
+          </div>
+          <div class="export-actions">
+            <button type="button" class="export-btn" id="btn-export-frame" aria-label="Export high-resolution composite PNG frame">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2v9.67z"/>
+              </svg>
+              EXPORT FRAME (PNG)
+            </button>
+            <button type="button" class="export-btn secondary" id="btn-export-seq" aria-label="Batch render 12 frames per second stepped sequence">
+              RENDER 12FPS SEQUENCE
+            </button>
+            <button type="button" class="export-btn secondary" id="btn-export-json" aria-label="Download project configuration JSON file">
+              SAVE PROJECT CONFIG
+            </button>
+          </div>
+        </section>
+
+      </aside>
+    </main>
+
+    <!-- ===================================================================
+         BOTTOM ANIMATION TIMELINE & FRAME SCRUBBER
+         =================================================================== -->
+    <footer class="studio-timeline" role="contentinfo" aria-label="Animation Timeline Controller">
+      <div class="timeline-controls" role="toolbar" aria-label="Playback Controls">
+        <button type="button" class="timeline-btn" id="timeline-prev-btn" title="Step Back 1 Frame (Left Arrow)" aria-label="Step 1 Frame Backward">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+        </button>
+        <button type="button" class="timeline-btn play" id="timeline-play-btn" title="Play / Pause Animation (Space or P key)" aria-label="Play or Pause Animation">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <button type="button" class="timeline-btn" id="timeline-next-btn" title="Step Forward 1 Frame (Right Arrow)" aria-label="Step 1 Frame Forward">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+        </button>
+      </div>
+
+      <div class="timeline-stepper-info">
+        <span class="stepper-fps-label" id="timeline-fps-label" aria-label="Current Playback Rate: 12 frames per second">12 FPS</span>
+        <span class="stepper-twos-sub" id="timeline-fps-sub">ANIMATING ON THE TWOS</span>
+      </div>
+
+      <!-- Scrubber Track with keyframe ticks -->
+      <div class="timeline-track-wrapper">
+        <div class="timeline-ticks" aria-hidden="true">
+          <div class="timeline-tick keyframe"></div>
+          <div class="timeline-tick"></div>
+          <div class="timeline-tick"></div>
+          <div class="timeline-tick"></div>
+          <div class="timeline-tick keyframe"></div>
+          <div class="timeline-tick"></div>
+          <div class="timeline-tick"></div>
+          <div class="timeline-tick"></div>
+          <div class="timeline-tick keyframe"></div>
+          <div class="timeline-tick"></div>
+          <div class="timeline-tick"></div>
+          <div class="timeline-tick"></div>
+          <div class="timeline-tick keyframe"></div>
+          <div class="timeline-tick"></div>
+          <div class="timeline-tick"></div>
+          <div class="timeline-tick"></div>
+          <div class="timeline-tick keyframe"></div>
+        </div>
+        <label for="timeline-scrubber" class="sr-only">Animation Timeline Frame Scrubber</label>
+        <input type="range" class="timeline-scrubber" id="timeline-scrubber" min="0" max="47" value="0" aria-label="Timeline Frame Scrubber" aria-valuemin="0" aria-valuemax="47" aria-valuenow="0">
+      </div>
+
+      <div class="frame-counter" id="frame-counter" aria-live="polite" aria-label="Current frame out of total frames">01 / 48</div>
+    </footer>
+
+  </div>
+
+  <!-- Shared Accessibility Module -->
+  <script src="js/a11y.js"></script>
+
+  <!-- Application Scripts -->
+  <script src="js/three_scene.js"></script>
+  <script src="js/vfx_engine.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

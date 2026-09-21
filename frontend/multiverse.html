@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spider-Verse Multiverse Gallery | Earth Dimensions & Aesthetic Lore</title>
+  <meta name="description" content="Explore the iconic visual languages and dimensions of the Spider-Verse: Earth-1610, Earth-65, Earth-2099, Earth-90214, Earth-138, and Earth-14512.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .multiverse-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .universe-showcase-card {
+      background: var(--bg-card);
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5), 4px 4px 0 #000;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .universe-showcase-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--card-accent, var(--preset-secondary));
+    }
+    .card-banner {
+      height: 120px;
+      background: linear-gradient(135deg, var(--card-c1), var(--card-c2));
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+      position: relative;
+    }
+    .card-banner-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(0, 0, 0, 0.75);
+      color: #ffffff;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .card-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 14px;
+    }
+    .card-hero-name {
+      font-family: var(--font-comic);
+      font-size: 26px;
+      letter-spacing: 1px;
+      color: #ffffff;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .specs-table {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .spec-name {
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-size: 9px;
+    }
+    .spec-val {
+      color: var(--preset-accent);
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .palette-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .copy-chip {
+      flex: 1;
+      height: 32px;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-family: var(--font-mono);
+      color: #fff;
+      text-shadow: 1px 1px 0 #000;
+      transition: transform 0.1s;
+    }
+    .copy-chip:hover {
+      transform: scale(1.06);
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#multiverse-main" class="skip-link">Skip to Multiverse Dimensions Content</a>
+
+  <div class="studio-container">
+
+    <!-- Top Navigation Header -->
+    <header class="studio-header" role="banner">
+      <div class="logo-section">
+        <a href="index.html" class="spider-badge" title="Spider-Verse ML Studio Home" aria-label="Spider-Verse ML Studio Home">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+        </a>
+        <div class="logo-title-group">
+          <h1>MULTIVERSE GALLERY</h1>
+        </div>
+        <span class="universe-tag">DIMENSIONS ARCHIVE</span>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="main-nav" role="navigation" aria-label="Studio Main Navigation">
+        <a href="index.html" class="nav-link">3D Studio</a>
+        <a href="vfx-lab.html" class="nav-link">Neural VFX Lab</a>
+        <a href="vfx-library.html" class="nav-link">Comic Sound FX</a>
+        <a href="multiverse.html" class="nav-link active" aria-current="page">Multiverse Gallery</a>
+        <a href="docs.html" class="nav-link">Animation Docs</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="a11y-btn" id="a11y-toggle-btn" aria-label="Open Accessibility Settings (Press ? key)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>
+          </svg>
+          A11Y / KEYS
+        </button>
+      </div>
+    </header>
+
+    <!-- Scrollable Content -->
+    <main class="page-scroll-container" id="multiverse-main" role="main">
+      <div class="page-hero">
+        <h1>EXPLORE THE SPIDER-VERSE MULTIVERSE</h1>
+        <p>
+          Every universe in the Spider-Verse features a completely distinct artistic style, frame rate pacing, printing halftone technique, and color palette. Explore all six dimensions below:
+        </p>
+      </div>
+
+      <div class="multiverse-grid">
+
+        <!-- 1. Earth-1610 (Miles Morales) -->
+        <article class="universe-showcase-card" style="--card-accent:#ff0055;" aria-labelledby="card-1610-title">
+          <div class="card-banner" style="--card-c1:#ff0055; --card-c2:#00f0ff;">
+            <span class="card-banner-badge">EARTH-1610</span>
+          </div>
+          <div class="card-content">
+            <h2 class="card-hero-name" id="card-1610-title">Miles Morales</h2>
+            <p class="card-desc">
+              Brooklyn street art and spray-paint aesthetic. Features dense Ben-Day print screening, vibrant electric cyan and neon hot magenta chromatic offsets, and yellow venom blast electrical arcs.
+            </p>
+            <div class="specs-table">
+              <div class="spec-item"><span class="spec-name">Frame Pacing</span><span class="spec-val">12 FPS ("On the Twos")</span></div>
+              <div class="spec-item"><span class="spec-name">Screen Angle</span><span class="spec-val">45.0 DEG (CMYK)</span></div>
+              <div class="spec-item"><span class="spec-name">Ink Contour</span><span class="spec-val">Thick Hand-Drawn</span></div>
+              <div class="spec-item"><span class="spec-name">VFX Motif</span><span class="spec-val">Venom Blast & Graffiti</span></div>
+            </div>
+            <div>
+              <span class="spec-name" style="display:block; margin-bottom:6px;">Palette Swatches (Click to copy)</span>
+              <div class="palette-row">
+                <button type="button" class="copy-chip" style="background:#ff0055;" data-hex="#ff0055" aria-label="Copy Magenta #ff0055">#ff0055</button>
+                <button type="button" class="copy-chip" style="background:#00f0ff; color:#000;" data-hex="#00f0ff" aria-label="Copy Cyan #00f0ff">#00f0ff</button>
+                <button type="button" class="copy-chip" style="background:#ffe600; color:#000;" data-hex="#ffe600" aria-label="Copy Yellow #ffe600">#ffe600</button>
+                <button type="button" class="copy-chip" style="background:#0b0d14;" data-hex="#0b0d14" aria-label="Copy Charcoal #0b0d14">#0b0d14</button>
+              </div>
+            </div>
+            <a href="index.html" class="export-btn secondary" style="text-align:center; text-decoration:none; margin-top:8px;" aria-label="Launch Earth-1610 in 3D Studio">
+              LAUNCH IN 3D STUDIO &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- 2. Earth-65 (Spider-Gwen) -->
+        <article class="universe-showcase-card" style="--card-accent:#ff66b2;" aria-labelledby="card-65-title">
+          <div class="card-banner" style="--card-c1:#ff66b2; --card-c2:#5ce1e6;">
+            <span class="card-banner-badge">EARTH-65</span>
+          </div>
+          <div class="card-content">
+            <h2 class="card-hero-name" id="card-65-title">Spider-Gwen</h2>
+            <p class="card-desc">
+              Emotional watercolor wash and mood-bleeding backgrounds. When Gwen is conflicted, walls melt and drip pastel turquoise and bubblegum pink. Features feathered ink contours and soft lighting.
+            </p>
+            <div class="specs-table">
+              <div class="spec-item"><span class="spec-name">Frame Pacing</span><span class="spec-val">12 FPS / Soft Fluid</span></div>
+              <div class="spec-item"><span class="spec-name">Screen Angle</span><span class="spec-val">60.0 DEG (Soft Wash)</span></div>
+              <div class="spec-item"><span class="spec-name">Ink Contour</span><span class="spec-val">Soft Feathered</span></div>
+              <div class="spec-item"><span class="spec-name">VFX Motif</span><span class="spec-val">Watercolor Drips</span></div>
+            </div>
+            <div>
+              <span class="spec-name" style="display:block; margin-bottom:6px;">Palette Swatches (Click to copy)</span>
+              <div class="palette-row">
+                <button type="button" class="copy-chip" style="background:#ff66b2;" data-hex="#ff66b2" aria-label="Copy Pastel Pink #ff66b2">#ff66b2</button>
+                <button type="button" class="copy-chip" style="background:#5ce1e6; color:#000;" data-hex="#5ce1e6" aria-label="Copy Turquoise #5ce1e6">#5ce1e6</button>
+                <button type="button" class="copy-chip" style="background:#1a1226;" data-hex="#1a1226" aria-label="Copy Plum #1a1226">#1a1226</button>
+                <button type="button" class="copy-chip" style="background:#ffffff; color:#000;" data-hex="#ffffff" aria-label="Copy White #ffffff">#ffffff</button>
+              </div>
+            </div>
+            <a href="index.html" class="export-btn secondary" style="text-align:center; text-decoration:none; margin-top:8px;" aria-label="Launch Earth-65 in 3D Studio">
+              LAUNCH IN 3D STUDIO &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- 3. Earth-2099 (Miguel O'Hara) -->
+        <article class="universe-showcase-card" style="--card-accent:#ff003c;" aria-labelledby="card-2099-title">
+          <div class="card-banner" style="--card-c1:#ff003c; --card-c2:#0051ff;">
+            <span class="card-banner-badge">EARTH-2099</span>
+          </div>
+          <div class="card-content">
+            <h2 class="card-hero-name" id="card-2099-title">Miguel O'Hara</h2>
+            <p class="card-desc">
+              High-tech brutalist future of Nueva York. Heavy digital scanline artifacts, wireframe laser meshes, deep obsidian shadows, and aggressive chromatic distortion.
+            </p>
+            <div class="specs-table">
+              <div class="spec-item"><span class="spec-name">Frame Pacing</span><span class="spec-val">24 FPS (Clinical Fast)</span></div>
+              <div class="spec-item"><span class="spec-name">Screen Angle</span><span class="spec-val">0.0 DEG (Digital Grid)</span></div>
+              <div class="spec-item"><span class="spec-name">Ink Contour</span><span class="spec-val">Hard Cyber Edge</span></div>
+              <div class="spec-item"><span class="spec-name">VFX Motif</span><span class="spec-val">Digital Glitch Matrix</span></div>
+            </div>
+            <div>
+              <span class="spec-name" style="display:block; margin-bottom:6px;">Palette Swatches (Click to copy)</span>
+              <div class="palette-row">
+                <button type="button" class="copy-chip" style="background:#ff003c;" data-hex="#ff003c" aria-label="Copy Laser Crimson #ff003c">#ff003c</button>
+                <button type="button" class="copy-chip" style="background:#0051ff;" data-hex="#0051ff" aria-label="Copy Cyber Blue #0051ff">#0051ff</button>
+                <button type="button" class="copy-chip" style="background:#00ffe1; color:#000;" data-hex="#00ffe1" aria-label="Copy Hologram Teal #00ffe1">#00ffe1</button>
+                <button type="button" class="copy-chip" style="background:#05070d;" data-hex="#05070d" aria-label="Copy Obsidian #05070d">#05070d</button>
+              </div>
+            </div>
+            <a href="index.html" class="export-btn secondary" style="text-align:center; text-decoration:none; margin-top:8px;" aria-label="Launch Earth-2099 in 3D Studio">
+              LAUNCH IN 3D STUDIO &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- 4. Earth-90214 (Spider-Man Noir) -->
+        <article class="universe-showcase-card" style="--card-accent:#e0e0e0;" aria-labelledby="card-noir-title">
+          <div class="card-banner" style="--card-c1:#333333; --card-c2:#111111;">
+            <span class="card-banner-badge">EARTH-90214</span>
+          </div>
+          <div class="card-content">
+            <h2 class="card-hero-name" id="card-noir-title">Spider-Man Noir</h2>
+            <p class="card-desc">
+              1933 Great Depression pulp magazine aesthetic. Stark black-and-white chiaroscuro shadow play, textured aged newsprint, and hand-drawn pen-and-ink cross-hatching.
+            </p>
+            <div class="specs-table">
+              <div class="spec-item"><span class="spec-name">Frame Pacing</span><span class="spec-val">12 FPS / Noir Rhythm</span></div>
+              <div class="spec-item"><span class="spec-name">Screen Angle</span><span class="spec-val">45.0 DEG (Newsprint)</span></div>
+              <div class="spec-item"><span class="spec-name">Ink Contour</span><span class="spec-val">Heavy Cross-Hatching</span></div>
+              <div class="spec-item"><span class="spec-name">VFX Motif</span><span class="spec-val">Wind, Rain, Smoke</span></div>
+            </div>
+            <div>
+              <span class="spec-name" style="display:block; margin-bottom:6px;">Palette Swatches (Click to copy)</span>
+              <div class="palette-row">
+                <button type="button" class="copy-chip" style="background:#0a0a0a;" data-hex="#0a0a0a" aria-label="Copy Pitch Black #0a0a0a">#0a0a0a</button>
+                <button type="button" class="copy-chip" style="background:#555555;" data-hex="#555555" aria-label="Copy Charcoal #555555">#555555</button>
+                <button type="button" class="copy-chip" style="background:#d2cdc3; color:#000;" data-hex="#d2cdc3" aria-label="Copy Sepia Paper #d2cdc3">#d2cdc3</button>
+                <button type="button" class="copy-chip" style="background:#ffffff; color:#000;" data-hex="#ffffff" aria-label="Copy White #ffffff">#ffffff</button>
+              </div>
+            </div>
+            <a href="index.html" class="export-btn secondary" style="text-align:center; text-decoration:none; margin-top:8px;" aria-label="Launch Earth-90214 in 3D Studio">
+              LAUNCH IN 3D STUDIO &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- 5. Earth-138 (Spider-Punk) -->
+        <article class="universe-showcase-card" style="--card-accent:#f92672;" aria-labelledby="card-punk-title">
+          <div class="card-banner" style="--card-c1:#f92672; --card-c2:#a6e22e;">
+            <span class="card-banner-badge">EARTH-138</span>
+          </div>
+          <div class="card-content">
+            <h2 class="card-hero-name" id="card-punk-title">Spider-Punk (Hobie)</h2>
+            <p class="card-desc">
+              Cut-up DIY punk zine collage and Xerox photocopier noise. His jacket, guitar, and mask animate at mismatched variable frame rates (8fps over 12fps) with torn paper borders.
+            </p>
+            <div class="specs-table">
+              <div class="spec-item"><span class="spec-name">Frame Pacing</span><span class="spec-val">8 FPS / 12 FPS Variable</span></div>
+              <div class="spec-item"><span class="spec-name">Screen Angle</span><span class="spec-val">Chaotic Mismatched</span></div>
+              <div class="spec-item"><span class="spec-name">Ink Contour</span><span class="spec-val">Torn Paper Edges</span></div>
+              <div class="spec-item"><span class="spec-name">VFX Motif</span><span class="spec-val">Safety Pins & Xerox</span></div>
+            </div>
+            <div>
+              <span class="spec-name" style="display:block; margin-bottom:6px;">Palette Swatches (Click to copy)</span>
+              <div class="palette-row">
+                <button type="button" class="copy-chip" style="background:#f92672;" data-hex="#f92672" aria-label="Copy Anarchy Pink #f92672">#f92672</button>
+                <button type="button" class="copy-chip" style="background:#a6e22e; color:#000;" data-hex="#a6e22e" aria-label="Copy Acid Lime #a6e22e">#a6e22e</button>
+                <button type="button" class="copy-chip" style="background:#66d9ef; color:#000;" data-hex="#66d9ef" aria-label="Copy Sky Blue #66d9ef">#66d9ef</button>
+                <button type="button" class="copy-chip" style="background:#111111;" data-hex="#111111" aria-label="Copy Dirty Asphalt #111111">#111111</button>
+              </div>
+            </div>
+            <a href="index.html" class="export-btn secondary" style="text-align:center; text-decoration:none; margin-top:8px;" aria-label="Launch Earth-138 in 3D Studio">
+              LAUNCH IN 3D STUDIO &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- 6. Earth-14512 (Peni Parker) -->
+        <article class="universe-showcase-card" style="--card-accent:#ff5277;" aria-labelledby="card-peni-title">
+          <div class="card-banner" style="--card-c1:#ff5277; --card-c2:#58d5ff;">
+            <span class="card-banner-badge">EARTH-14512</span>
+          </div>
+          <div class="card-content">
+            <h2 class="card-hero-name" id="card-peni-title">Peni Parker & SP//dr</h2>
+            <p class="card-desc">
+              Neo-Tokyo mecha anime and shojo manga. Features printed screentone dot shading, dynamic action speedbursts, emotive comic eye bubbles, and sweet cherry blossom pastel tones.
+            </p>
+            <div class="specs-table">
+              <div class="spec-item"><span class="spec-name">Frame Pacing</span><span class="spec-val">12 FPS / Anime Stepped</span></div>
+              <div class="spec-item"><span class="spec-name">Screen Angle</span><span class="spec-val">90.0 DEG (Manga Tone)</span></div>
+              <div class="spec-item"><span class="spec-name">Ink Contour</span><span class="spec-val">Clean Anime Linework</span></div>
+              <div class="spec-item"><span class="spec-name">VFX Motif</span><span class="spec-val">Kawaii Sparkles & Stars</span></div>
+            </div>
+            <div>
+              <span class="spec-name" style="display:block; margin-bottom:6px;">Palette Swatches (Click to copy)</span>
+              <div class="palette-row">
+                <button type="button" class="copy-chip" style="background:#ff5277;" data-hex="#ff5277" aria-label="Copy Cherry Blossom #ff5277">#ff5277</button>
+                <button type="button" class="copy-chip" style="background:#ffb8d2; color:#000;" data-hex="#ffb8d2" aria-label="Copy Sweet Pink #ffb8d2">#ffb8d2</button>
+                <button type="button" class="copy-chip" style="background:#58d5ff; color:#000;" data-hex="#58d5ff" aria-label="Copy Mecha Cyan #58d5ff">#58d5ff</button>
+                <button type="button" class="copy-chip" style="background:#14101e;" data-hex="#14101e" aria-label="Copy Dark Indigo #14101e">#14101e</button>
+              </div>
+            </div>
+            <a href="index.html" class="export-btn secondary" style="text-align:center; text-decoration:none; margin-top:8px;" aria-label="Launch Earth-14512 in 3D Studio">
+              LAUNCH IN 3D STUDIO &rarr;
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/a11y.js"></script>
+  <script>
+    // Copy HEX chips
+    document.querySelectorAll(".copy-chip").forEach(chip => {
+      chip.addEventListener("click", () => {
+        const hex = chip.getAttribute("data-hex");
+        navigator.clipboard.writeText(hex);
+        window.SpiderVerseA11Y.announce(`Copied ${hex} to clipboard`);
+        alert(`Copied ${hex} to clipboard!`);
+      });
+    });
+  </script>
+</body>
+</html>
